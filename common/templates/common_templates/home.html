@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<title>Car Dealer</title>
+
+<link href="{% static 'css/homepage.css' %}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<div id="container">
+
+<div id="header">
+
+  <img src="{% static 'images/logo.jpg' %}" width="206" height="116" alt="" id="logo" />
+  
+  <img src="{% static 'images/slogan.jpg' %}" width="269" height="46" alt="" id="slogan" />
+  
+  <div class="m-4">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="customer_login" class="navbar-brand">CustomerLogin</a>
+                    <a href="seller_login" class="navbar-brand">SellerLogin</a>
+                    
+                    
+                    
+                </div>
+                
+                
+            </div>
+        </div>
+    </nav>
+</div>
+
+  
+  
+  </div>
+
+<div id="content">
+
+<div id="leftPan">
+
+<div id="welcome">
+<h2></h2>
+
+<p><span class="headline">Fusce urna dui, sollicitudin ac</span> Fusce interdum. Maecenas eu elit sed nulla dignissim interdum. Sed laoreet. Aenean pede. Phasellus porta. Ut dictum <a href="#">nonummy diam.</a> Cras ullamcorper nibh. Sed laoreet. Praesent vehicula suscipit</p>
+</div>
+
+<div id="news">
+<h2></h2>
+
+<p><span>21.06.2009</span><a href="#">Fusce interdum. Maecenas eu elit sed nulla dignissim interdum. Sed laoreet. Aenean </a></p>
+<p><span>20.06.2009</span><a href="#">Fusce interdum. Maecenas eu elit sed nulla dignissim interdum. Sed laoreet. Aenean </a></p>
+
+</div>
+
+</div>
+<div id="centerPan">
+
+<div id="featured">
+<h2></h2>
+
+<p><span class="headline">Sed laoreet. Aenean. Phasellus porta.</span> Fusce interdum. Maecenas eu elit sed nulla dignissim interdum. Sed laoreet. Aenean pede. </p>
+
+<div class="fcar">
+  <img src="{% static 'images/img_cars.jpg' %}" width="101" height="58" alt="" />
+  
+  <p><span class="headline2">Fusce interdum. </span><br />
+Maecenas eu elit sed nulla dignissim interdum. Sed laoreet. <a href="#" class="a2">more...</a></p>
+  
+  <div class="clear"></div>
+  </div>
+  
+  <div class="fcar">
+  <img src="{% static 'images/img_cars-12.jpg' %}" width="101" height="58" alt="" />
+  
+  <p><span class="headline2">Nullam eleifend. </span><br />
+Maecenas eu elit sed nulla dignissim interdum. Sed laoreet. <a href="#" class="a2">more...</a></p>
+  
+  <div class="clear"></div>
+  </div>
+  
+  <div class="fcar">
+  <img src="{% static 'images/img_cars-15.jpg' %}" width="101" height="58" alt="" />
+  
+  <p><span class="headline2">Fusce interdum. </span><br />
+Maecenas eu elit sed nulla dignissim interdum. Sed laoreet. <a href="#" class="a2">more...</a></p>
+  
+  <div class="clear"></div>
+  </div>
+
+
+</div>
+
+</div>
+<div id="rightPan">
+
+<div id="services">
+<h2></h2>
+
+<div class="serv_item">
+
+  <img src="{% static 'images/img_services.jpg' %}" width="58" height="35" alt="" />
+  
+  <p><a href="#">Fusce interdum. Maecenas eu elit </a><br />
+sed nulla dignissim interdum. Sed laoreet. Aenean pede. Phasellus </p>
+
+  <div class="clear"></div>
+  
+  </div>
+  
+  
+  <div class="serv_item">
+
+  <img src="{% static 'images/img_services-11.jpg' %}" width="58" height="35" alt="" />
+  
+  <p><a href="#">Fusce interdum. Maecenas eu elit </a><br />
+sed nulla dignissim interdum. Sed laoreet. Aenean pede. Phasellus </p>
+
+  <div class="clear"></div>
+  
+  </div>
+  
+  
+  <div class="serv_item">
+
+  <img src="{% static 'images/img_services-14.jpg' %}" width="58" height="35" alt="" />
+  
+  <p><a href="#">Fusce interdum. Maecenas eu elit </a><br />
+sed nulla dignissim interdum. Sed laoreet. Aenean pede. Phasellus </p>
+
+  <div class="clear"></div>
+  
+  </div>
+  
+  
+  <div class="serv_item">
+
+  <img src="{% static 'images/img_services-16.jpg' %}" width="58" height="35" alt="" />
+  
+  <p><a href="#">Fusce interdum. Maecenas eu elit </a><br />
+sed nulla dignissim interdum. Sed laoreet. Aenean pede. Phasellus </p>
+
+  <div class="clear"></div>
+  
+  </div>
+
+</div>
+
+</div>
+
+
+<div class="clear"></div>
+
+</div>
+
+<div id="footer">
+
+<p><a href="#">HOME</a> | <a href="#">ABOUT US</a> | <a href="#">NEW CARS</a> | <a href="#">USED CARS</a> | <a href="#">SUPPORT</a> | <a href="#">NEWS</a>  | <a href="#">CONTACTS</a><br/>
+  Copyright &copy; Your Company Name</p>
+
+</div>
+
+
+</div>
+
+<div align=center>This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div></body>
+</html>

@@ -1,0 +1,114 @@
+{% extends "seller_templates/seller_master.html" %}
+{% load static %}
+{% block title %}products{% endblock %}
+{% block head %}
+    
+<style>
+    .main{
+display: flex;
+}
+.container_left{
+display: flex;
+flex-direction: column;
+width: 250px;
+
+}
+.sub{
+background-color: black;
+margin: 4px;
+padding: 5px;
+border-radius: 7px 0px 0px 7px;   
+}
+.sub:hover{
+background-color: rgb(137, 137, 137);
+margin: 7px;
+padding: 8px;
+border-radius: 10px; 
+
+}
+.sub h2{
+font-family: sans-serif;
+color:white;
+padding-left: 5px;
+}
+.sub a{
+text-decoration: none;
+color: white;
+padding-left: 5px;
+}
+.container_right{
+width: 100%;
+
+}
+.seller_name{
+background-color: black;
+color: white;
+margin-top: 4px;
+padding: 10px;
+}
+
+.product{
+margin-top: 7px;
+width: 100%;
+display: grid;
+grid-template-columns: auto auto auto auto;
+grid-row-gap: 20px;
+
+}
+.card{
+width: 250px;
+background-color: whitesmoke;
+margin: 10px;
+border-radius: 7px;
+}
+.b_image{
+padding: 20px;
+
+}
+.b_image img{
+width: 100%;
+margin-left: auto;
+margin-right: auto;
+}
+.detail{
+font-family: Arial, Helvetica, sans-serif;
+margin-left: 20px;
+
+}
+</style>
+    
+    {% endblock %}
+    {% block body %}
+    <div class="container_right">
+        <div class="seller_name">
+            <h3>Available Cars</h3>
+        </div>
+        
+        <div class="product">
+            {% for product in products %}
+            <div class="card">
+               
+                <div class="b_image">
+                    <img src="{{product.prod_image.url}}" alt="">
+                </div> 
+                <div class="detail">
+                    <b><span>{{product.prod_name }}</span></b>
+                    <br><br>
+                    <b>Discription : <span>{{product.prod_des}}</span> </b>
+                    <br>
+                    <b>Stock : <span>{{product.prod_stock}}</span> </b>
+                    <br>
+                    <b>price : <span>{{product.prod_price}}</span> </b>
+
+
+                    
+                </div>
+               
+            </div>
+           
+           
+            {% endfor %}
+            
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,148 @@
+{% extends "customer_templates/customer_master.html" %}
+{% load static %}
+{% block title %}home{% endblock %}
+
+{% block head %}
+<style>
+    .nav {
+        width: 100%;
+        background-color: black;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .nav b {
+        color: white;
+        font-size: 30px;
+        font-family: sans-serif;
+    }
+
+    .main {
+        width: 100%;
+    }
+
+
+    .table1 {
+        margin-top: 100px;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    th {
+        background-color: teal;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    td {
+        background-color: black;
+        color: white;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    img {
+        width: 100px;
+        height: 100px;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="nav"><b>MY CART</b></div>
+
+    <div class="main">
+        <table class="table1">
+            <thead>
+                <tr>
+                    <th>n</th>
+                    <th>PRODUCT IMG</th>
+                    <th>NAME</th>
+                    <th>PRICE</th>
+                    <th>QTY</th>
+                    <TH>TOTAL</TH>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for item in cart_data %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>
+                        <div>
+                            <img src="{{ item.product.prod_image.url}}" alt="">
+                        </div>
+                    </td>
+                    <td>{{item.product.prod_name}}</td>
+                    <td>
+                        {{item.product.prod_price}}
+                    </td>
+                    <td class="product_qty">
+                        {{item.quantity}}
+                    </td>
+                    <td>
+                        {{item.total}}
+                    </td>
+
+                    <td>
+                        <a href="{% url 'customer:delete_item' item.product.id %}">Delete</a>
+
+                    </td>
+                    
+                </tr>
+
+
+                {% endfor %}
+
+                <tr>
+                    <td colspan="4"></td>
+                    <td>grand total </td>
+
+                    <td><span>{{grand_total}}</span></td>
+                    <td><a href="{% url 'customer:sale' %}">Sale</a></td>
+                    <td><p id="demo"></p></td>
+                </tr>
+
+
+            </tbody>
+
+
+
+
+        </table>
+    </div>
+
+
+</div>
+ 
+<!-- <script>
+    let itemObj = {}
+    let itemArray = {}
+    function purchaseItems() {
+        
+        let selectedProductId = document.getElementsByClassName('product_id')
+        let selected_qty = document.getElementsByClassName('product_qty')
+        
+        
+        let text = "";
+        for (let i = 0; i < selected_qty.length; i++) {
+        text += selected_qty[i].innerText + "<br>";
+        document.getElementById("demo").innerHTML = text;
+        } 
+
+    
+        var items = JSON.parse('{{ items|safe }}');
+        console.log(items);
+
+    }
+
+</script> -->
+
+{% endblock %}

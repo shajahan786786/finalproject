@@ -1,0 +1,112 @@
+{% extends "customer_templates/customer_master.html" %}
+{% load static %}
+{% block title %}home{% endblock %}
+
+{% block head %}
+<style>
+    @media print {
+  button {
+    display: none;
+  }
+    }
+
+    .buttonprint {
+  background-color: #7a70a2; /* Green */
+  
+    }
+
+    .nav {
+        width: 100%;
+        background-color: black;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .nav b {
+        color: white;
+        font-size: 30px;
+        font-family: sans-serif;
+    }
+
+    .main {
+        width: 100%;
+    }
+
+
+    .table1 {
+        margin-top: 100px;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    th {
+        background-color: teal;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    td {
+        background-color: black;
+        color: white;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    img {
+        width: 100px;
+        height: 100px;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Bill</h1>
+    <p>Thank you for your purchase! Here are the details:</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_data %}
+            
+            <tr>
+                <td>{{ item.product.prod_name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.product.prod_price }}</td>
+                <td>{% widthratio item.quantity 1 item.product.prod_price %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2"></td>
+                <td >Grand Total</td>
+                <td>{{ cart_total }}</td>
+            </tr>
+        </tfoot>
+    </table>
+    
+    <p>Please make payment to the following account:</p>
+    <ul>
+        <li>Bank: SWissBank</li>
+        <li>Account number: 153296436</li>
+        <li>Amount: {{ cart_total }}</li>
+    </ul>
+    
+    <p>Thank you for shopping with us!</p>
+    <button onclick="window.print()" class="buttonprint">Print Bill</button>
+</div>
+{% endblock %} 

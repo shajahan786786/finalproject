@@ -1,0 +1,146 @@
+{% extends "customer_templates/customer_master.html" %}
+{% load static %}
+{% block title %}home{% endblock %}
+
+{% block head %}
+<style>
+.button{
+    /* font-family: "Poppins"; */
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 5px 5px 10px #888;
+}
+#heart{
+    outline-style: 1px solid black;
+}
+.header{
+    text-align: center;
+    background-color: rgb(214, 213, 213);
+}
+
+.product{
+margin-top: 7px;
+width: 100%;
+display: grid;
+grid-template-columns: auto auto auto auto;
+grid-row-gap: 20px;
+
+}
+.card{
+    width: 250px;
+    background-color: whitesmoke;
+    margin: 10px;
+    border-radius: 7px;
+}
+.b_image{
+   padding: 20px;
+    
+}
+.b_image img{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.detail{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 20px;
+    
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+.pagination .next, .pagination .prev {
+  font-weight: bold;
+}
+
+.pagination .prev {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pagination .next {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="header">
+    <h1>Products</h1>
+</div>
+<div class="product">
+    
+
+    {% for product in products %}
+    <a href="{% url 'customer:product_details' product.id %}">
+        <div class="card">
+        
+            <div class="b_image">
+                <img src="{{MEDIA_URL}}{{product.prod_image}}" alt="{{ MEDIA_URL}}{{product.prod_image}}">
+            </div>
+            <div class="detail">
+                
+                <b><span>{{product.prod_name}}</span></b>
+                <br><br>
+                <b>Discription : <span>{{product.prod_des}}</span> </b>
+                <br>
+                <b>Stock : <span>{{product.prod_stock}}</span> </b>
+                <br>
+                <b>price : <span>{{product.prod_price}}</span> </b>
+                <br>
+                <br>
+            
+                
+            </div>
+            
+        
+        </div>
+    </a>
+    {% endfor %}
+    
+   
+</div>
+<div class="pagination">
+    {% if products.has_previous %}
+    <a href="?page={{ products.previous_page_number }}">previous</a>
+    {% endif %}
+    {% for i in products.paginator.page_range %}
+    {% if i == products.number %}
+      <span class="current-page">{{ i }}</span>
+    {% else %}
+      <a href="?page={{ i }}">{{ i }}</a>
+    {% endif %}
+    {% endfor %}
+    {% if products.has_next %}
+    <a href="?page={{ products.next_page_number }}">next</a>
+    {% endif %}
+</div>
+{% endblock %}

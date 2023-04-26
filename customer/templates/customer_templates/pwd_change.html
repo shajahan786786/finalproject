@@ -1,0 +1,99 @@
+{% extends "customer_templates/customer_master.html" %}
+{% load static %}
+{% block title %}change password{% endblock %}
+
+{% block head %}
+<style>
+    .main {
+        display: flex;
+
+        height: 100vh;
+    }
+
+    .container_right {
+        background-color: white;
+        width: 80%;
+    }
+
+    .container_left {
+        width: 20%;
+        border-radius: 5px;
+
+        background-color: white;
+    }
+
+    .seller_name {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 60px;
+        background-color: rgb(178, 134, 80);
+        border-radius: 5px;
+    }
+
+    .sub1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 20px;
+        border-radius: 5px;
+        height: 40px;
+        background-color: rgb(178, 134, 80);
+        padding-top: 3px;
+        margin-top: 4px;
+        font-family: sans-serif
+    }
+
+    .form1 {
+        display: flex;
+        justify-content: space-around;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="header">
+    <h1>Reset Password</h1>
+</div>
+<div class="form1">
+    <div style="margin-top: 20%; border-radius: 5px;">
+        <table>
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                <tr>
+                    <td>
+                        <h3>change password</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>enter old password</td>
+                    <td><input type="password" name="old_pwd"></td>
+                </tr>
+                <tr>
+                    <td>enter new password</td>
+                    <td><input type="password" name="new_pwd" id=""></td>
+                </tr>
+                <tr>
+                    <td>re enter passsword</td>
+                    <td><input type="password" name="confirm_pwd" id=""></td>
+
+                </tr>
+                <tr>
+                    <td rowspan="2"><input type="submit" value="change"></td>
+                </tr>
+            {{msg}}
+            </form>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,137 @@
+{% extends "seller_templates/seller_master.html" %}
+{% load static %}
+{% block title %}add products{% endblock %}
+{% block head %}
+    
+    <style>
+        .font
+        {
+            color: rgb(34, 5, 13);
+        }
+        .main{
+    display: flex;
+}
+.container_left{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    
+}
+.sub{
+    background-color: black;
+    margin: 4px;
+    padding: 5px;
+    border-radius: 7px 0px 0px 7px;   
+}
+.sub:hover{
+    background-color: rgb(137, 137, 137);
+    margin: 7px;
+    padding: 8px;
+    border-radius: 10px; 
+    
+}
+.sub h2{
+    font-family: sans-serif;
+    color:white;
+    padding-left: 5px;
+}
+.sub a{
+    text-decoration: none;
+    color: white;
+    padding-left: 5px;
+}
+.container_right{
+    width: 100%;
+    
+}
+.seller_name{
+    background-color: black;
+    color: white;
+    margin-top: 4px;
+    padding: 10px;
+}
+
+
+
+.table_add{
+    margin-top: 30px;
+    padding: 20px;
+    background-color: whitesmoke;
+    margin-left: auto;
+    margin-right: auto;
+}
+.table_add input{
+   width: 380px;
+   height: 25px;
+   margin-top: 20px;
+}
+.table_add textarea{
+    margin-top: 20px;
+}
+#btn{
+    background-color: rgb(16, 22, 55);
+    color: white;
+    height: 30px;
+    border-radius: 5px;
+}
+    </style>
+    
+    {% endblock %}
+    {% block body %}
+    <div class="container_right">
+        <div class="seller_name">
+            <h3>New One</h3>
+        </div>
+        <div class="add">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table class="table_add">
+                    <tr>
+                        <td>
+                            <input name="prd_name" type="text" placeholder="Product Name">
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td>
+                            <textarea name="prd_des" id="" cols="50" rows="6" placeholder="Discription"></textarea>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <input name="prd_stock" type="text" placeholder="stock">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input name="prd_price" type="text" placeholder="Price">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input name="prd_image" type="file">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="btn" type="submit">
+                        </td>
+                    </tr>
+                    {{msg}}
+                </table>
+            </form>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+    {% endblock %}
